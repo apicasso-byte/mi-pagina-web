@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia App</title>
+    <link rel="stylesheet" href="Style.css">
+    <!-- Fuente moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Pantalla de bienvenida -->
+    <div class = "screen" id ="welcomeScreen">
+        <img src="{% static 'questions/Trivia.png' %}" alt="Bienvenido a Trivia" id="welcome-img">
+        <h1>¡Bienvenido a Trivia!</h1>
+        <button id="startBtn">¡Comenzar!</button>
+    </div>
+
+    <!-- Menú principal -->
+    <div id="menuScreen" class="screen hidden">
+        <h2>Elige una opción</h2>
+        <button id="showQuestion">Jugar trivia</button>
+        <button id="showCustomQuestions">Mis preguntas</button>
+        <button id="playCustomBtn">Jugar mis preguntas</button>
+    </div>
+
+    <!-- Opciones de trivia -->
+    <div id="quiz-options" class="screen hidden">
+        <h2>Selecciona nivel y tema</h2>
+        <label>Nivel:</label>
+        <select id="difficulty">
+            <option value="facil">Fácil</option>
+            <option value="medio">Medio</option>
+            <option value="dificil">Difícil</option>
+        </select>
+        <br><br>
+        <label>Tema:</label>
+        <select id="category">
+            <option value="historia">Historia</option>
+            <option value="ciencia">Ciencia</option>
+            <option value="geografia">Geografía</option>
+        </select>
+        <br><br>
+        <button id="playBtn">Iniciar Trivia</button>
+    </div>
+
+    <!-- Pantalla de trivia normal -->
+    <div id="quizScreen" class="screen hidden">
+        <h2>Trivia</h2>
+        <div id="question"></div>
+        <div id="options"></div>
+        <p>Puntaje: <span id="score">0</span></p>
+    </div>
+
+    <!-- Pantalla de trivia personalizada -->
+    <div id="customQuizScreen" class="screen hidden">
+        <h2>Mis Preguntas</h2>
+        <div id="customQuestion"></div>
+        <div id="customOptions"></div>
+        <p>Puntaje: <span id="customScore">0</span></p>
+        <button id="backFromCustom">Volver al menú</button>
+    </div>
+
+    <!-- Pantalla para crear preguntas -->
+    <div id="createScreen" class="screen hidden">
+    <h2>Crear tu pregunta</h2>
+
+    <label>Pregunta:</label>
+    <input type="text" id="newQuestion" placeholder="Escribe la pregunta">
+
+    <label>Opción 1:</label>
+    <input type="text" id="newOption1" placeholder="Opción 1">
+
+    <label>Opción 2:</label>
+    <input type="text" id="newOption2" placeholder="Opción 2">
+
+    <label>Opción 3:</label>
+    <input type="text" id="newOption3" placeholder="Opción 3">
+
+    <label>Respuesta correcta:</label>
+    <input type="text" id="newAnswer" placeholder="Escribe la respuesta correcta">
+
+    <!-- Primero guardar, luego volver -->
+    <button id="saveQuestion">Guardar pregunta</button>
+    <button id="backFromCreate">Volver al menú</button>
+
+    <h3>Mis preguntas guardadas:</h3>
+    <div id="myQuestions"></div> <!-- Aquí se mostrarán -->
+</div>
+    <script src="Backend.js" defer></script>
+</body>
+</html>
